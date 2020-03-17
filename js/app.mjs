@@ -28,7 +28,7 @@ function init() {
     const tsList = vidClone.querySelector('ul');
     console.log(tsList);
     for(const timestamp in video.timestamps) {
-      // TODO: clean this up later
+      // TODO: preventDefault on a and use YT iFrame API instead
       tsList.innerHTML += `<li><a href="https://www.youtube.com/watch?v=${video.id}&t=${timestamp}">${video.timestamps[timestamp]}</a></li>`;
     }
     document.querySelector('section').appendChild(vidClone);
