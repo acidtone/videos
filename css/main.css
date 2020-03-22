@@ -1,0 +1,7 @@
+main {
+  max-width: 1024px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto minmax(auto,40ch);
+}
+
