@@ -1,18 +1,9 @@
-
-// import { videos } from '../fixtures/videos.mjs';
+// Import fixture. POC uses only one video for testing
+// TODO: Add support for multiple videos by adding url parameters for vid id and timestamps
+// TODO: migrate fixture data to MongoDB.
+import { videos } from '../fixtures/video.mjs';
 
 function init() {
-  const video = {
-    id: 'panKf9hzUfQ',
-    timestamps: {
-      41: 'Is CSS a programming language?',
-      168: 'What is a programming language?',
-      342: 'Turd Driven Development',
-      472: 'What is programming?',
-      512: 'Algorithms 101',
-      725: 'CSS Algorithms 101'
-    }
-  };
   
   const vidTemplate = document.querySelector("#video");
   const tsTemplate = document.querySelector("#timestamp");
@@ -22,9 +13,9 @@ function init() {
   vidClone.querySelector('address').innerText = video.attribution;
   const tsList = vidClone.querySelector('ul');
 
-  Object.entries(video.timestamps).forEach(function(title){
-    console.log(title[0]);
-    tsList.innerHTML += `<li><button value="${title[0]}">${title[1]}</button></li>`;
+  Object.entries(videos[0].timestamps).forEach(function(ts){
+    console.log(ts[0]);
+    tsList.innerHTML += `<li><button value="${ts[0]}">${ts[1]}</button></li>`;
   })
 
   // Add click listeners to each button; clunky but it works for now
@@ -34,7 +25,6 @@ function init() {
   const buttons = tsList.querySelectorAll('button');
   for (let button of buttons) {
     button.addEventListener('click',function(evt){
-      console.log(this.value); 
       player.seekTo(this.value);
     })
   }
