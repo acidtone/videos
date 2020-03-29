@@ -1,36 +1,46 @@
 // Import fixture. POC uses only one video for testing
 // TODO: Add support for multiple videos by adding url parameters for vid id and timestamps
 // TODO: migrate fixture data to MongoDB.
-import { videos } from '../fixtures/video.mjs';
+import { videos } from '../fixtures/videos.mjs';
+const video = videos.filter(function(item){
+  return item.id === videoId;
+})[0] || {};
 
 function init() {
-  
-  const vidTemplate = document.querySelector("#video");
-  const tsTemplate = document.querySelector("#timestamp");
-  const vidClone = vidTemplate.content.cloneNode(true);
-  
-  vidClone.querySelector('h2').innerText = video.title;
-  vidClone.querySelector('address').innerText = video.attribution;
-  const tsList = vidClone.querySelector('ul');
+  console.log(video.timestamps);
+  if (typeof video.timestamps === "object") {
+    const tsList = document.querySelector('template#timestamps').content.cloneNode(true);
+    const tsItemTemplate = tsList.querySelector('li').cloneNode(true);
+    const tsParent = tsList.parentNode;
+    
+    document.querySelector('body > header > h1').innerText = video.title;
+    document.querySelector('body > header > address').innerText = video.author;
 
-  Object.entries(videos[0].timestamps).forEach(function(ts){
-    console.log(ts[0]);
-    tsList.innerHTML += `<li><button value="${ts[0]}">${ts[1]}</button></li>`;
-  })
+    tsList.textContent = '';
 
-  // Add click listeners to each button; clunky but it works for now
-  // Using for...of and NOT for...in as per this SO:
-  // https://stackoverflow.com/questions/22754315/for-loop-for-htmlcollection-elements
-
-  const buttons = tsList.querySelectorAll('button');
-  for (let button of buttons) {
-    button.addEventListener('click',function(evt){
-      player.seekTo(this.value);
+    Object.entries(video.timestamps).forEach(function(ts){
+      let listItem = tsItemTemplate.cloneNode(true);
+      listItem.querySelector('.ts-click').setAttribute('value',ts[0]);
+      listItem.querySelector('.ts-click').innerText = ts[1];
+      tsList.appendChild(listItem);
     })
-  }
 
-  document.querySelector('section').appendChild(vidClone);
-  
+    // Add click listeners to each button; clunky but it works for now
+    // Using for...of and NOT for...in as per this SO:
+    // https://stackoverflow.com/questions/22754315/for-loop-for-htmlcollection-elements
+
+    const buttons = tsList.querySelectorAll('button');
+    for (let button of buttons) {
+      button.addEventListener('click',function(evt){
+        // TODO: add 't' search param to the address bar
+        player.seekTo(this.value);
+      })
+    }
+
+    document.querySelector('template#timestamps').parentNode.appendChild(tsList);
+  } else {
+    document.querySelector('template#timestamps').parentNode.innerText = 'No bookmarks found for this video.';
+  }
 }
 
-document.addEventListener('load',init());
+document.addEventListener('load',init(player));
