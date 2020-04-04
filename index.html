@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <h1></h1>
+    <h1>Video List</h1>
     <address></address>
   </header>
   <main>
@@ -27,37 +27,41 @@
   <script>
     // 1. What video are we playing?
     const url = new URL(window.location.href);
-    const videoId = url.hash.replace(/^#/,'');
+    const videoId = url.searchParams.get("v") || null;
+    const timestamp = url.searchParams.get("t") || 0;
 
     // 2. This code loads the IFrame Player API code asynchronously.
-    var tag = document.createElement('script');
-
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    // 3. This function creates an <iframe> (and YouTube player) after the API code downloads.
-    var player;
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', {
-        height: '390',
-        width: '640',
-        videoId: videoId,
-        events: {
-          'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange
-        }
-      });
-    }
-
-    // 4. The API will call this function when the video player is ready.
-    function onPlayerReady(event) {
+    if (videoId) {
+      var tag = document.createElement('script');
   
-    }
-
-    // 5. The API calls this function when the player's state changes.
-    function onPlayerStateChange(event) {
-
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  
+      // 3. This function creates an <iframe> (and YouTube player) after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: videoId,
+          startSeconds: timestamp,
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+  
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+    
+      }
+  
+      // 5. The API calls this function when the player's state changes.
+      function onPlayerStateChange(event) {
+      
+      }
     }
   </script>
 </body>
