@@ -34,8 +34,8 @@ export const viewer = {
       const tsList = document.querySelector('template#timestamps').content.cloneNode(true);
       const tsItemTemplate = tsList.querySelector('li').cloneNode(true);
       
-      document.querySelector('body > header > h1').innerText = video.title;
-      document.querySelector('body > header > address').innerText = video.author;
+      document.querySelector('.vid-title').innerText = video.title;
+      document.querySelector('.vid-author').innerText = video.author;
   
       tsList.textContent = '';
   

@@ -4,24 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>iFrame Viewer</title>
+  <link rel="stylesheet" href="../core/css/reset.css">
+  <link rel="stylesheet" href="../core/css/fonts.css">
+  <link rel="stylesheet" href="../core/css/main.css">
   <link rel="stylesheet" href="css/main.css">
   <script type="module" src="js/app.mjs"></script>
 </head>
 <body>
-  <header>
-    <h1>Video List</h1>
-    <address></address>
-  </header>
-  <main>
+  <main class="grid grid-cols2 center-outside">
+    <header class="grid-item-span2">
+      <h1 class="vid-title">Video List</h1>
+      <address class="vid-author"></address>
+    </header>
     <div id="player"></div>
     <section>
       <!-- Video Template: to be looped through -->
-      <template id="timestamps">
-        <!-- topics by timestamp -->
-        <ul id="ts-list">
+      <ul id="ts-list" class="clear-style">
+        <template id="timestamps">
+          <!-- topics by timestamp -->
           <li><button class="ts-click"></button></li>
-        </ul>
-      </template>
+        </template>
+      </ul>
     </section>
   </main>
   <script>
