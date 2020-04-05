@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>iFrame Viewer</title>
+  <link rel="stylesheet" href="../core/css/reset.css">
+  <link rel="stylesheet" href="../core/css/fonts.css">
+  <link rel="stylesheet" href="../core/css/main.css">
   <link rel="stylesheet" href="css/main.css">
   <script type="module" src="js/app.mjs"></script>
 </head>
@@ -11,16 +14,12 @@
   <header>
     <h1>Video List</h1>
   </header>
-  <main>
-    <section class="span2">
-      <p>No videos found.</p>
+  <main id="videos" >
+    <ul>
       <template id="videos">
-        <!-- topics by timestamp -->
-        <ul id="vid-list">
-          <li><button class="vid-click"></button></li>
-        </ul>
+        <li><a class="vid-click" href="[url]">[title]</a> by <span class="vid-author">[author]</span></li>
       </template>
-    </section>
+    </ul>
   </main>
 </body>
 </html>

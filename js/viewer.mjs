@@ -3,6 +3,28 @@ import { videos } from '../fixtures/videos.mjs';
 
 export const viewer = {
   videos,
+  listVideos: function(){
+    const videos = this.videos || [];
+
+    if (videos.length > 0) {
+      const vidList = document.querySelector('template#videos').content.cloneNode(true);
+      const vidItemTemplate = vidList.querySelector('li').cloneNode(true);
+  
+      console.log(vidList);
+      vidList.textContent = '';
+      videos.forEach(function(video){
+        let listItem = vidItemTemplate.cloneNode(true);
+  
+        listItem.querySelector('a.vid-click').setAttribute('href', `video.html?v=${video.id}`);
+        listItem.querySelector('a.vid-click').innerText = video.title;
+        listItem.querySelector('span.vid-author'). innerText = video.author;
+        vidList.appendChild(listItem);
+      });
+      document.querySelector('template#videos').parentNode.appendChild(vidList);
+    } else {
+      document.querySelector('template#videos').parentNode.textContent = "No videos found!";
+    }
+  },
   loadVideo: function(videoId) {    
     const video = this.videos.filter(function(item){
       return item.id === videoId;
@@ -11,7 +33,6 @@ export const viewer = {
     if (typeof video === "object" && typeof video.timestamps === "object") {
       const tsList = document.querySelector('template#timestamps').content.cloneNode(true);
       const tsItemTemplate = tsList.querySelector('li').cloneNode(true);
-      const tsParent = tsList.parentNode;
       
       document.querySelector('body > header > h1').innerText = video.title;
       document.querySelector('body > header > address').innerText = video.author;
