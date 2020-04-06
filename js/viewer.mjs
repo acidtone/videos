@@ -61,7 +61,6 @@ export const viewer = {
           // TODO: seekTo() needs to be fired on address change to account for the back button 
           player.seekTo(this.value);
           url.searchParams.set("t",this.value);
-          console.log(url.searchParams.get("t"));
           // Create new browser history entry or edit the existing one?
           // history.replaceState({}, "", url.search);
           history.pushState({}, "", url.search);

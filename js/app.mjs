@@ -11,3 +11,6 @@ function init() {
 }
 
 document.addEventListener('load',init());
+document.addEventListener('click', function(){
+  
+});
