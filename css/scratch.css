@@ -2,6 +2,8 @@ main {
   max-width: 1024px;
   border-left: 1px solid black;
   border-right: 1px solid black;
+
+  grid-auto-rows: min-content;
 }
 
 header {
