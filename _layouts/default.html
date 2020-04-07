@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <title>{{ page.title }} - {{ site.title }}</title>
-    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-  </head>
-  <body>
-    {{ content}}
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/core/v0/css/reset.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/core/v0/css/fonts.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/core/v0/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/scratch.css' | relative_url }}">
+  <script type="module" src="{{ '/assets/js/app.mjs' | relative_url }}"></script>
+{{ content }}
 </html>

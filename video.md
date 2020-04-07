@@ -1,23 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>iFrame Viewer</title>
-  <link rel="stylesheet" href="../core/css/reset.css">
-  <link rel="stylesheet" href="../core/css/fonts.css">
-  <link rel="stylesheet" href="../core/css/main.css">
-  <link rel="stylesheet" href="css/scratch.css">
-  <script type="module" src="js/app.mjs"></script>
-  <style>
-    .grid {
-      grid-template-columns: 1fr 30ch;
-      grid-auto-rows: min-content 360px; /* yuck */
-    }
-
-  </style>
-</head>
-<body>
+---
+layout: video
+---
   <main class="grid grid-cols2 center-outside full-height">
     <header class="grid-item-span2">
       <a href="index.html"><-</a>
@@ -74,5 +57,3 @@
       }
     }
   </script>
-</body>
-</html>

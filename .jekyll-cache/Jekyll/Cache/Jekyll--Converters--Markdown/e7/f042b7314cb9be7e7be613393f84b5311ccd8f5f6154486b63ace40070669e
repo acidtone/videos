@@ -1,8 +1,4 @@
----
-layout: page
-title: "iFrame Viewer" 
----
-<body>
+I"&<body>
   <main class="grid text-box full-height">
     <header>
       <h1>Video List</h1>
@@ -14,3 +10,4 @@ title: "iFrame Viewer"
     </ul>
   </main>
 </body>
+:ET
