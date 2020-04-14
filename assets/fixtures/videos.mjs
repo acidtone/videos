@@ -41,6 +41,54 @@ export const videos = [
       2607: 'Takeaway #14: CSS variables + SVG = love',
       2690: 'Takeaway #15: CSS variables are a revolution for separation of style and behaviour'
     }
+  },
+  {
+    id: 'ADXX4fmWHbo',
+    title: 'SVG Can Do That?!',
+    author: 'Sarah Drasner',
+    timestamps: {
+      60: 'Advantages of SVG',
+      376: 'SVG in responsive design',
+      470: 'SVG for page transitions',
+      651: 'SVG for page layout',
+      689: 'SVG can be tiny',
+      750: 'Tools for optimization',
+      992: 'SVG can be accessible',
+      1076: 'SVG can be styled like text',
+      1125: 'SVG can bounce',
+      1203: 'SVG can snap',
+      1318: 'SVG can distort',
+      1509: 'SVG can do on-the-fly logo adjustment',
+      1572: 'SVG can draw itself',
+      1632: 'You can interact with SVG',
+      1740: 'SVG can be clipped and masked',
+      1850: 'SVG can signify something changing',
+      1908: 'You can use an SVG’s viewBox like a camera',
+      2029: 'SVG can make a game',
+      2224: 'Q & A'
+    }
+  },
+  {
+    id: 'LY65F2e4B5w',
+    title: 'Editing Images in CSS with Filters and Blend Modes',
+    author: 'Una Kravets',
+    timestamps: {
+      261: 'CSS filters: Browser Support',
+      277: 'available filters',
+      377: 'practical examples',
+      434: 'Blend Modes: Browser Support',
+      489: 'blend mode basics: The Munsell Color System',
+      546: 'darken modes',
+      621: 'lighten modes',
+      660: 'contrast modes',
+      700: 'comparative modes',
+      765: 'composite modes',
+      862: 'practical examples',
+      1011: 'websites using blend modes in the wild',
+      1060: 'live coded examples',
+      1267: 'overview of CSS gradients',
+      1413: 'examples'
+    }
   }
 
 ];

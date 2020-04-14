@@ -62,8 +62,8 @@ export const viewer = {
           player.seekTo(this.value);
           url.searchParams.set("t",this.value);
           // Create new browser history entry or edit the existing one?
-          // history.replaceState({}, "", url.search);
-          history.pushState({}, "", url.search);
+          history.replaceState({}, "", url.search);
+          // history.pushState({}, "", url.search);
         })
       }
   
