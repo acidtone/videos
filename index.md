@@ -2,7 +2,6 @@
 layout: page
 title: "iFrame Viewer" 
 ---
-<body>
   <main class="grid text-box full-height">
     <header>
       <h1>Video List</h1>
@@ -13,4 +12,3 @@ title: "iFrame Viewer"
       </template>
     </ul>
   </main>
-</body>
